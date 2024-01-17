@@ -3,10 +3,11 @@ public class Menus {
     public void MenuPrincipal() {
 
         System.out.println("\n\n----- MENU DO JOGO -----");
-        System.out.println("\n1 -       Corridas Principais");
-        System.out.println("\n2 -       Corridas de Rua");
-        System.out.println("\n3 -       Upgrade");
-        System.out.println("\n4 -       Sair");
+        System.out.println("1 -       Corridas Principais");
+        System.out.println("2 -       Corridas de Rua");
+        System.out.println("3 -       Upgrade");
+        System.out.println("4 -       Status");
+        System.out.println("5 -       Sair");
 
 
     }
@@ -14,13 +15,13 @@ public class Menus {
     public void MenuCorridaPrincipal() {
 
         System.out.println("\n\n----- MENU CORRIDAS PRINCIPAIS -----");
-        System.out.println("\nOPONENTES: ");
-        System.out.println("\n1 -       FIAT");
-        System.out.println("\n2 -       AUDI");
-        System.out.println("\n3 -       BMW");
-        System.out.println("\n4 -       MUSTANG");
-        System.out.println("\n5 -       FERRARI");
-        System.out.println("\n6 -       Voltar");
+        System.out.println("OPONENTES: ");
+        System.out.println("1 -       FIAT");
+        System.out.println("2 -       AUDI");
+        System.out.println("3 -       BMW");
+        System.out.println("4 -       MUSTANG");
+        System.out.println("5 -       FERRARI");
+        System.out.println("6 -       Voltar");
 
 
     }
@@ -28,10 +29,11 @@ public class Menus {
     public void MenuCorridaRua() {
 
         System.out.println("\n\n----- MENU CORRIDAS RUA -----");
-        System.out.println("\nDIFICULDADE: ");
-        System.out.println("\n1 -       FACIL");
-        System.out.println("\n2 -       MEDIO");
-        System.out.println("\n3 -       DIFICIL");
+        System.out.println("DIFICULDADE: ");
+        System.out.println("1 -       FACIL");
+        System.out.println("2 -       MEDIO");
+        System.out.println("3 -       DIFICIL");
+        System.out.println("4 -       Voltar");
 
     }
 }
