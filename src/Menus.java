@@ -20,7 +20,7 @@ public class Menus {
         System.out.println("\n3 -       BMW");
         System.out.println("\n4 -       MUSTANG");
         System.out.println("\n5 -       FERRARI");
-        System.out.println("\n4 -       Voltar");
+        System.out.println("\n6 -       Voltar");
 
 
     }
@@ -30,8 +30,8 @@ public class Menus {
         System.out.println("\n\n----- MENU CORRIDAS RUA -----");
         System.out.println("\nDIFICULDADE: ");
         System.out.println("\n1 -       FACIL");
-        System.out.println("\n1 -       MEDIO");
-        System.out.println("\n1 -       DIFICIL");
+        System.out.println("\n2 -       MEDIO");
+        System.out.println("\n3 -       DIFICIL");
 
     }
 }

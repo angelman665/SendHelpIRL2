@@ -3,9 +3,19 @@ import java.util.Scanner;
 class Car {
     String name;
     int speed;
+    int currentSpeed = 0;
     int maxAcceleration = 10;
-    int minAcceleration = 0;
+    int minAcceleration = 1;
     int upgrades = 0;
+
+    public Car(String name, int speed, int maxAcceleration, int minAcceleration, int upgrades, int currentSpeed) {
+        this.name = name;
+        this.speed = speed;
+        this.maxAcceleration = maxAcceleration;
+        this.minAcceleration = minAcceleration;
+        this.upgrades = upgrades;
+        this.currentSpeed = currentSpeed;
+    }
 }
 
 class Player {
@@ -21,13 +31,14 @@ public class Main {
         Menus menus = new Menus();
         Scanner scan = new Scanner(System.in);
         Player player = new Player();
-        Car cars[] = new Car[10];
+
+
         int opc = 0, count = 0, custoUpgrade = 100, opcCprincipal = 0, opcCrua = 0;
-
-
+        boolean again = true;
 
 
         do {
+            count = 0;
             System.out.println("\nEscolha uma opção: ");
             System.out.println("\n1 -        Subaru");
             System.out.println("\n2 -        BMW");
@@ -37,24 +48,21 @@ public class Main {
 
             switch (opc) {
                 case 1:
-                    player.car.name = "Subaru";
-                    player.car.speed = 120;
+
+                    player.car = new Car("SUBARU", 120, 10, 1, 0, 0);
                     count++;
                     break;
                 case 2:
-                    player.car.name = "BMW";
-                    player.car.speed = 120;
+                    player.car = new Car("BMW", 120, 10, 1, 0, 0);
                     count++;
                     break;
                 case 3:
-                    player.car.name = "Audi";
-                    player.car.speed = 120;
+                    player.car = new Car("AUDI", 120, 10, 1, 0, 0);
                     count++;
                     break;
                 case 4:
                     System.out.println("Nome do carro: ");
-                    player.car.name = scan.nextLine();
-                    player.car.speed = 120;
+                    player.car = new Car(scan.nextLine(), 120, 10, 1, 0, 0);
                     count++;
                     break;
                 default:
@@ -74,7 +82,23 @@ public class Main {
 
             switch (opc) {
                 case 1:
-                    menus.MenuCorridaPrincipal();
+                    while (again) {
+                        again = false;
+
+                        menus.MenuCorridaPrincipal();
+                        opcCprincipal = scan.nextInt();
+
+                        if (opcCprincipal >= 1 && opcCprincipal < 6) {
+                            corrida.MainRace(player.car, opcCprincipal);
+                        } else if (opcCprincipal == 6) {
+                            break;
+                        } else {
+                            System.out.println("\nEscolha uma opção valida");
+                            again = true;
+                        }
+                        break;
+                    }
+
                 case 2:
                     menus.MenuCorridaRua();
                     break;
