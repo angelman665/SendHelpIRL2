@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Corrida implements ICorrida {
+
     Random rand = new Random();
     Car cars[] = new Car[5];
     int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0;
@@ -126,6 +127,7 @@ public class Corrida implements ICorrida {
 
     }
 
+    
     public void RaceCalculator(Car c1, int cpu) {
         int playerDistance = 0, cpuDistance = 0, maxDistance = 0;
 
@@ -204,10 +206,92 @@ public class Corrida implements ICorrida {
             System.out.println("CPU Distance: " + cpuDistance);
         } else
             System.out.println("EMPATE");
-
-
     }
 
+
+    /*
+        public void RaceCalculator(Car c1, int cpu) {
+            int playerDistance = 0, cpuDistance = 0, maxDistance = 0;
+
+            if (cpu == 1)
+                maxDistance = 500;
+            else if (cpu == 2) {
+                maxDistance = 1000;
+            } else if (cpu == 3) {
+                maxDistance = 1500;
+            } else if (cpu == 4) {
+                maxDistance = 2000;
+            } else if (cpu == 5) {
+                maxDistance = 2500;
+            }
+
+
+            while (playerDistance < maxDistance && cpuDistance < maxDistance) {
+
+                c1.currentSpeed += (int) Math.floor(Math.random() * (c1.maxAcceleration - c1.minAcceleration + 1) + c1.minAcceleration);
+                if (c1.currentSpeed > c1.speed)
+                    c1.currentSpeed = c1.speed;
+
+                playerDistance = playerDistance + c1.currentSpeed;
+
+
+                cars[cpu - 1].currentSpeed += (int) Math.floor(Math.random() * (cars[cpu - 1].maxAcceleration - cars[cpu - 1].minAcceleration + 1) + cars[cpu - 1].minAcceleration);
+                if (cars[cpu - 1].currentSpeed > cars[cpu - 1].speed)
+                    cars[cpu - 1].currentSpeed = cars[cpu - 1].speed;
+
+                cpuDistance = cpuDistance + cars[cpu - 1].currentSpeed;
+
+
+                System.out.println("Player Speed= " + c1.currentSpeed);
+                System.out.println("CPU Speed= " + cars[cpu - 1].currentSpeed);
+                System.out.println("-----------------------------------");
+
+
+            }
+            if (playerDistance > cpuDistance) {
+                System.out.println("VITORIA");
+                System.out.println("Player Distance: " + playerDistance);
+                System.out.println("CPU Distance: " + cpuDistance);
+                if (count1 == 0 && cpu == 1) {
+                    System.out.println("################");
+                    System.out.println("PREMIO = 500€");
+                    System.out.println("################");
+                    count1++;
+                } else if (count2 == 0 && cpu == 2) {
+                    System.out.println("################");
+                    System.out.println("PREMIO = 1000€");
+                    System.out.println("################");
+                    count2++;
+                } else if (count3 == 0 && cpu == 3) {
+                    System.out.println("################");
+                    System.out.println("PREMIO = 1500€");
+                    System.out.println("################");
+                    count3++;
+
+                } else if (count4 == 0 && cpu == 4) {
+                    System.out.println("################");
+                    System.out.println("PREMIO = 2000€");
+                    System.out.println("################");
+                    count4++;
+
+                } else if (count5 == 0 && cpu == 5) {
+                    System.out.println("################");
+                    System.out.println("PREMIO = 2500€");
+                    System.out.println("################");
+                    count5++;
+
+                }
+
+            } else if (cpuDistance > playerDistance) {
+                System.out.println("PERDESTE");
+                System.out.println("Player Distance: " + playerDistance);
+                System.out.println("CPU Distance: " + cpuDistance);
+            } else
+                System.out.println("EMPATE");
+
+
+        }
+    */
     public void CarInit() {
         cars[0] = new Car("FIAT", 120, 0, 10, 1, 0);
         cars[1] = new Car("AUDI", 160, 0, 14, 4, 0);

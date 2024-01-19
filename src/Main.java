@@ -70,12 +70,13 @@ public class Main {
             System.out.println("Upgrades: " + player.car.upgrades + " / 20");
             System.out.println("######");
             opc = scan.nextInt();
+            again = true;
+            again2 = true;
 
             switch (opc) {
                 // MENU DE CORRIDAS PRINCIPAIS
                 case 1:
                     while (again) {
-
 
                         menus.MenuCorridaPrincipal();
                         opcCprincipal = scan.nextInt();
@@ -115,10 +116,20 @@ public class Main {
 
                 case 3:
                     if (player.getMoney().getAmount() >= custoUpgrade) {
+                        int a, b, c;
+                        a = player.car.speed;
+                        b = player.car.maxAcceleration;
+                        c = player.car.minAcceleration;
+
                         corrida.UpdateCar(player.car);
                         player.deductMoney(custoUpgrade);
                         custoUpgrade += 100;
-                        System.out.println("\nUpgrade Feito com sucesso, proximo upgrade custa: " + custoUpgrade);
+                        System.out.println("#######");
+                        System.out.println("Upgrade Feito com sucesso, proximo upgrade custa: " + custoUpgrade);
+                        System.out.println("\nVELOCIDADE MAX: " + a + "---> VELOCIDADE MAX: " + player.car.speed);
+                        System.out.println("Aceleração MAX: " + b + "---> Aceleraçãop MAX: " + player.car.maxAcceleration);
+                        System.out.println("Aceleração MIN: " + c + "---> Aceleração MIN: " + player.car.minAcceleration);
+                        System.out.println("#######");
                     } else {
                         System.out.println("\nSem dinheiro para upgrade.");
                         System.out.println("Proximo upgrade custa: " + custoUpgrade);
