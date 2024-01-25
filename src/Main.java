@@ -21,7 +21,15 @@ public class Main {
             System.out.println("2 -        BMW");
             System.out.println("3 -        Audi");
             //System.out.println("4 -        Personalizado");
-            opc = scan.nextInt();
+
+            do {
+                while (!scan.hasNextInt()) {
+                    System.out.println("Opção invalida");
+                    scan.next();
+                }
+                opc = scan.nextInt();
+            } while (opc <= 0);
+
 
             //CRIAÇÃO DE CARRO PARA PLAYER
             switch (opc) {
@@ -69,7 +77,15 @@ public class Main {
                 System.out.println("Money: " + player.getMoney().getAmount());
             System.out.println("Upgrades: " + player.car.upgrades + " / 20");
             System.out.println("######");
-            opc = scan.nextInt();
+
+            do {
+                while (!scan.hasNextInt()) {
+                    System.out.println("Opção invalida");
+                    scan.next();
+                }
+                opc = scan.nextInt();
+            } while (opc <= 0);
+
             again = true;
             again2 = true;
 
@@ -79,7 +95,13 @@ public class Main {
                     while (again) {
 
                         menus.MenuCorridaPrincipal();
-                        opcCprincipal = scan.nextInt();
+                        do {
+                            while (!scan.hasNextInt()) {
+                                System.out.println("Opção invalida");
+                                scan.next();
+                            }
+                            opcCprincipal = scan.nextInt();
+                        } while (opcCprincipal <= 0);
 
                         if (opcCprincipal >= 1 && opcCprincipal < 6) {
                             corrida.MainRace(player, player.car, opcCprincipal);
@@ -98,7 +120,13 @@ public class Main {
                     while (again2) {
 
                         menus.MenuCorridaRua();
-                        opcCrua = scan.nextInt();
+                        do {
+                            while (!scan.hasNextInt()) {
+                                System.out.println("Opção invalida");
+                                scan.next();
+                            }
+                            opcCrua = scan.nextInt();
+                        } while (opcCrua <= 0);
 
                         if (opcCrua >= 1 && opcCrua < 4) {
                             corrida.StreetRace(player, opcCrua);
@@ -148,7 +176,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("\nESCOLHA UMA OPÇÃO VALIDA");
-                    opc = 0;
+
                     break;
 
             }
@@ -157,15 +185,6 @@ public class Main {
         } while (countcount == 0);
 
 
-    }
-
-    public static void clearConsole() {
-        // Number of newlines to clear the console (adjust as needed)
-        int linesToClear = 50;
-
-        for (int i = 0; i < linesToClear; i++) {
-            System.out.println();
-        }
     }
 
 

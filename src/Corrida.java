@@ -127,7 +127,7 @@ public class Corrida implements ICorrida {
 
     }
 
-    
+
     public void RaceCalculator(Car c1, int cpu) {
         int playerDistance = 0, cpuDistance = 0, maxDistance = 0;
 
@@ -160,8 +160,8 @@ public class Corrida implements ICorrida {
             cpuDistance = cpuDistance + cars[cpu - 1].currentSpeed;
 
 
-            System.out.println("Player Speed= " + c1.currentSpeed);
-            System.out.println("CPU Speed= " + cars[cpu - 1].currentSpeed);
+            System.out.println("Player Speed= " + c1.currentSpeed + "Km/h");
+            System.out.println("CPU Speed= " + cars[cpu - 1].currentSpeed + "Km/h");
             System.out.println("-----------------------------------");
 
 
@@ -326,8 +326,8 @@ public class Corrida implements ICorrida {
                 cpuDistance = cpuDistance + easyCar.currentSpeed;
 
 
-                System.out.println("Player Speed= " + c1.currentSpeed);
-                System.out.println("CPU Speed= " + easyCar.currentSpeed);
+                System.out.println("Player Speed= " + c1.currentSpeed + "Km/h");
+                System.out.println("CPU Speed= " + easyCar.currentSpeed + "Km/h");
                 System.out.println("-----------------------------------");
             }
 
@@ -372,8 +372,8 @@ public class Corrida implements ICorrida {
                 cpuDistance = cpuDistance + midCar.currentSpeed;
 
 
-                System.out.println("Player Speed= " + c1.currentSpeed);
-                System.out.println("CPU Speed= " + midCar.currentSpeed);
+                System.out.println("Player Speed= " + c1.currentSpeed + "Km/h");
+                System.out.println("CPU Speed= " + midCar.currentSpeed + "Km/h");
                 System.out.println("-----------------------------------");
             }
 
@@ -387,8 +387,8 @@ public class Corrida implements ICorrida {
                 sRaceCounter++;
             } else if (cpuDistance > playerDistance) {
                 System.out.println("\nPERDESTE");
-                System.out.println("Player Distance: " + playerDistance);
-                System.out.println("CPU Distance: " + cpuDistance);
+                System.out.println("Player Distance: " + playerDistance + "Km/h");
+                System.out.println("CPU Distance: " + cpuDistance + "Km/h");
                 sRaceCounter--;
             } else {
                 System.out.println("\nEMPATE");
@@ -415,8 +415,8 @@ public class Corrida implements ICorrida {
                 cpuDistance = cpuDistance + hardCar.currentSpeed;
 
 
-                System.out.println("Player Speed= " + c1.currentSpeed);
-                System.out.println("CPU Speed= " + hardCar.currentSpeed);
+                System.out.println("Player Speed= " + c1.currentSpeed + "Km/h");
+                System.out.println("CPU Speed= " + hardCar.currentSpeed + "Km/h");
                 System.out.println("-----------------------------------");
             }
 
