@@ -8,10 +8,24 @@ public class Main {
         Menus menus = new Menus();
         Scanner scan = new Scanner(System.in);
         Player player = new Player(Money.VALUE_0);
+        MainRace mainRace = new MainRace();
+        StreetRace streetRace = new StreetRace();
+
+        Car cars[] = new Car[5];
+        Car streetCars[] = new Car[3];
+
+        cars[0] = new Car("FIAT", 120, 0, 10, 1, 0);
+        cars[1] = new Car("AUDI", 160, 0, 14, 4, 0);
+        cars[2] = new Car("BMW", 220, 0, 19, 9, 0);
+        cars[3] = new Car("MUSTANG", 280, 0, 23, 13, 0);
+        cars[4] = new Car("FERRARI", 315, 0, 28, 20, 0);
+
+        streetCars[0] = new Car("EASYCAR", 100, 0, 9, 1, 0);
+        streetCars[1] = new Car("MIDCAR", 200, 0, 17, 10, 0);
+        streetCars[2] = new Car("HARDCAR", 300, 0, 25, 15, 0);
 
 
-        int opc = 0, count = 0, custoUpgrade = 100, opcCprincipal = 0, opcCrua = 0, countcount = 0;
-        boolean again = true, again2 = true;
+        int opc = 0, count = 0, opcCprincipal = 0, opcCrua = 0, countcount = 0;
 
         // 1º MENU - ESCOLHER CARRO - CRIAÇÃO DE CARRO
         do {
@@ -64,13 +78,12 @@ public class Main {
         } while (count == 0);
 
 
-        opc = 0;
-
         // DO WHILE DE MENUS
         do {
             // MOSTRA MENU PRINCIPAL
 
             menus.MenuPrincipal();
+
             System.out.println("######");
             System.out.println("Carro: " + player.car.name);
             if (player.getMoney() != null)
@@ -86,82 +99,50 @@ public class Main {
                 opc = scan.nextInt();
             } while (opc <= 0);
 
-            again = true;
-            again2 = true;
 
             switch (opc) {
                 // MENU DE CORRIDAS PRINCIPAIS
                 case 1:
-                    while (again) {
-
-                        menus.MenuCorridaPrincipal();
-                        do {
-                            while (!scan.hasNextInt()) {
-                                System.out.println("Opção invalida");
-                                scan.next();
-                            }
-                            opcCprincipal = scan.nextInt();
-                        } while (opcCprincipal <= 0);
-
-                        if (opcCprincipal >= 1 && opcCprincipal < 6) {
-                            corrida.MainRace(player, player.car, opcCprincipal);
-                            break;
-                        } else if (opcCprincipal == 6) {
-                            again = false;
-                            break;
-                        } else {
-                            System.out.println("\nEscolha uma opção valida");
+                    menus.MenuCorridaPrincipal();
+                    do {
+                        while (!scan.hasNextInt()) {
+                            System.out.println("Opção invalida");
+                            scan.next();
                         }
+                        opcCprincipal = scan.nextInt();
+                    } while (opcCprincipal <= 0);
 
+                    if (opcCprincipal >= 1 && opcCprincipal < 6) {
+                        mainRace.RaceCalculator(player, opcCprincipal, cars[opcCprincipal - 1]);
+                        break;
+                    } else {
+                        System.out.println("Opção invalida");
+                        break;
                     }
-                    break;
-                // MENU DE CORRIDAS DE RUA
+
+                    // MENU DE CORRIDAS DE RUA
                 case 2:
-                    while (again2) {
-
-                        menus.MenuCorridaRua();
-                        do {
-                            while (!scan.hasNextInt()) {
-                                System.out.println("Opção invalida");
-                                scan.next();
-                            }
-                            opcCrua = scan.nextInt();
-                        } while (opcCrua <= 0);
-
-                        if (opcCrua >= 1 && opcCrua < 4) {
-                            corrida.StreetRace(player, opcCrua);
-                            break;
-                        } else if (opcCrua == 4) {
-                            again2 = false;
-                            break;
-                        } else {
-                            System.out.println("\nEscolha uma opção valida");
-
+                    menus.MenuCorridaRua();
+                    do {
+                        while (!scan.hasNextInt()) {
+                            System.out.println("Opção invalida");
+                            scan.next();
                         }
+                        opcCrua = scan.nextInt();
+                    } while (opcCrua <= 0);
+
+
+                    if (opcCrua >= 1 && opcCrua < 4) {
+                        streetRace.RaceCalculator(player, opcCrua, streetCars[opcCrua - 1]);
+                        break;
+                    } else {
+                        System.out.println("Opção invalida");
+                        break;
                     }
-                    break;
 
 
                 case 3:
-                    if (player.getMoney().getAmount() >= custoUpgrade) {
-                        int a, b, c;
-                        a = player.car.speed;
-                        b = player.car.maxAcceleration;
-                        c = player.car.minAcceleration;
-
-                        corrida.UpdateCar(player.car);
-                        player.deductMoney(custoUpgrade);
-                        custoUpgrade += 100;
-                        System.out.println("#######");
-                        System.out.println("Upgrade Feito com sucesso, proximo upgrade custa: " + custoUpgrade);
-                        System.out.println("\nVELOCIDADE MAX: " + a + "---> VELOCIDADE MAX: " + player.car.speed);
-                        System.out.println("Aceleração MAX: " + b + "---> Aceleraçãop MAX: " + player.car.maxAcceleration);
-                        System.out.println("Aceleração MIN: " + c + "---> Aceleração MIN: " + player.car.minAcceleration);
-                        System.out.println("#######");
-                    } else {
-                        System.out.println("\nSem dinheiro para upgrade.");
-                        System.out.println("Proximo upgrade custa: " + custoUpgrade);
-                    }
+                    corrida.UpdateCar(player);
                     break;
 
                 case 4:

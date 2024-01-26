@@ -30,7 +30,7 @@ public class Player {
         int currentAmount = money.getAmount();
         int newAmount = currentAmount - amount;
 
-        // Ensure the new amount is non-negative
+
         if (newAmount >= 0) {
             setMoney(getMoneyForAmount(newAmount));
         } else {
@@ -43,9 +43,9 @@ public class Player {
         int currentAmount = money.getAmount();
         int newAmount = currentAmount + amount;
 
-        // Check if the new amount exceeds the maximum (5000)
+
         if (newAmount > 5000) {
-            System.out.println("Warning: Money exceeds 5000. Setting to 5000.");
+            System.out.println("Dinheiro MAX: 5000€");
             newAmount = 5000;
         }
 
